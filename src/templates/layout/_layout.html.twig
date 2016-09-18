@@ -8,11 +8,18 @@
             <link rel="stylesheet" href="main.css">
         {% endblock stylesheets %}
 
-        {% block javascript_top %}{% endblock %}
+        {% block javascript_top %}
+            <script src="https://code.jquery.com/jquery.min.js"></script>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {% endblock %}
     </head>
 
     <body {% block body_attr %}{% endblock %}>
-        {% block content %}{% endblock %}
+        <div class="container-fluid">
+            <h1>Loïc tries React</h1>
+            {% block content %}{% endblock %}
+        </div>
 
         {% block javascript_bottom %}{% endblock %}
     </body>

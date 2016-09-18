@@ -1,12 +1,9 @@
 {% extends 'layout/_layout.html.twig' %}
 
 {% block content %}
-    <div class="well clearfix">
-        <textarea class="form-control"></textarea><br>
-        <button class="btn btn-primary pull-right">Tweet</button>
-    </div>
+    <div id="container"></div>
 {% endblock content %}
 
 {% block javascript_bottom %}
-    <script src="./public/javascript/jquery/tweetbox.js"></script>
+    <script type="text/babel" src="./public/javascript/react/tweetbox.js"></script>
 {% endblock %}

@@ -1,0 +1,12 @@
+{
+    "sass_src": "src/style",
+    "sass_dest": "dest",
+    "twig_enabled": true,
+    "twig_src": "src/templates",
+    "twig_compilation": true,
+    "twig_dest": "dest",
+    "public_enabled": true,
+    "public_src": "src",
+    "public_dest": "dest",
+    "serve": true
+}

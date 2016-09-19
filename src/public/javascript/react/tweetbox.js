@@ -18,9 +18,31 @@ var TweetBox = React.createClass({
             return 140 - this.state.text.length;
         }
     },
+    overflowAlert: function() {
+        if (this.remainingCharacters() < 0) {
+            if (this.state.photoAdded) {
+                var beforeOverflowText = this.state.text.substring(140 - 23 - 10, 140 - 23);
+                var overflowText = this.state.text.substring(140 - 23);
+            } else {
+                var beforeOverflowText = this.state.text.substring(140 - 10, 140);
+                var overflowText = this.state.text.substring(140);
+            }
+
+            return (
+                <div className="alert alert-warning">
+                    <strong>Oops ! Too Long:</strong>
+                    &nbsp;...{beforeOverflowText}
+                    <strong class="bg-danger">{overflowText}</strong>
+                </div>
+            );
+        } else {
+            return '';
+        }
+    },
     render: function() {
         return (
             <div className="well clearfix">
+                { this.overflowAlert() }
                 <textarea className="form-control"
                           onChange={this.handleChange}></textarea>
                 <br/>

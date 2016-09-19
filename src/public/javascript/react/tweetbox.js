@@ -18,6 +18,9 @@ var TweetBox = React.createClass({
             return 140 - this.state.text.length;
         }
     },
+    disableTweetButton: function () {
+        return this.remainingCharacters() === 140 || this.remainingCharacters() < 0;
+    },
     overflowAlert: function() {
         if (this.remainingCharacters() < 0) {
             if (this.state.photoAdded) {
@@ -48,7 +51,7 @@ var TweetBox = React.createClass({
                 <br/>
                 <span>{ this.remainingCharacters() }</span>
                 <button className="btn btn-primary pull-right"
-                        disabled={this.remainingCharacters() === 140}>Tweet</button>
+                        disabled={this.disableTweetButton()}>Tweet</button>
                 <button className="btn btn-default pull-right"
                         onClick={this.togglePhoto}>
                     {this.state.photoAdded ? "✓ Photo Added" : "Add Photo"}
